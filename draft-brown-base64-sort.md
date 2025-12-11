@@ -7,7 +7,7 @@ docname: draft-base64-sort
 submissiontype: IETF
 date: 2025
 consensus: true
-v: 1
+v: 3
 keyword:
   - encoding
   - base64
@@ -22,6 +22,9 @@ author:
     email: kydavis@cisco.com
     org: Cisco Systems
 
+normative:
+  RFC4648:
+
 --- abstract
 
 This document details a formal specification for a new Base64 alphabet that follows the US-ASCII ordering and is sorts the same as binary.
@@ -34,7 +37,7 @@ Base64 ({{RFC4648, Section 4}}) and Base64url ({{RFC4648, Section 5}}) have been
 
 This document serves as an informational RFC to provide a new alphabet that follows the US-ASCII ordering, re-uses the Base64url special characters and sorts the same as binary. 
 
-# The Alphabet
+# The Alphabet {#alphabetTable}
 
 This Base64 Sortable alphabet is a variant of the Base64url alphabet ({{RFC4648, Section 5}}). While it utilizes the same set of 64 URL-safe characters as Base64url, its fundamental distinction lies in the assignment of values to these characters. This alphabet is specifically designed such that its encoded output sorts lexicographically in the same order as the underlying binary data, by aligning the character values with their US-ASCII ordering.
 
@@ -74,13 +77,13 @@ The decoding process for Base64sort follows the principles outlined in ({{RFC464
 
 To validate the lexicographical sortability of the Base64 Sortable alphabet in common computing environments, a series of tests were conducted across various programming languages and database systems. The objective was to observe how a mixed list of characters from the proposed alphabet would sort using their default string comparison mechanisms.
 
-### Programming Language Results
+## Programming Language Results
 
 Tests were performed using Python, C, C++, Java, JavaScript, Delphi/Object Pascal, Perl, and Go. In these languages, a list containing a subset of the Base64 Sortable alphabet characters (`A`, `a`, `b`, `7`, `3`, `B`, `C`, `c`, `E`, `z`, `-`, `_`) was sorted. The results consistently demonstrated sorting according to the US-ASCII character order: `-`, `3`, `7`, `A`, `B`, `C`, `E`, `_`, `a`, `b`, `c`, `z`. This indicates that the chosen character set and their relative ASCII values are respected by the default string sorting algorithms in these environments.
 
 However, C# and Visual Basic exhibited a different sorting behavior, placing `_` before `3` and sorting uppercase letters after their lowercase counterparts (e.g., `a` before `A`). This suggests that their default string comparison routines may employ locale-aware or cultural sorting rules rather than strict ordinal (ASCII) comparison.
 
-### Database Test Results
+## Database Test Results
 
 Database tests were conducted on SQL (PostgreSQL), MongoDB, and Redis.
 
@@ -88,19 +91,13 @@ Database tests were conducted on SQL (PostgreSQL), MongoDB, and Redis.
 *   **MongoDB**: MongoDB's default sort behavior for the test set aligned with the desired US-ASCII order, matching the results observed in most programming languages.
 *   **Redis**: Redis's `SORT ... ALPHA` command also showed a deviation, placing `_` before `3` and lowercase letters before uppercase, similar to the default SQL, C#, and Visual Basic results.
 
-### Conclusion
+## Conclusion
 
 The testing confirms that the Base64 Sortable alphabet generally achieves its goal of producing lexicographically sortable output when standard US-ASCII or C-locale string comparison rules are applied. Implementers should be aware that certain programming languages (e.g., C#, Visual Basic) and database systems (e.g., default SQL collations, Redis) may employ locale-aware or alternative default collation rules that can alter the sort order. To ensure consistent binary-equivalent sorting, explicit specification of ordinal or C-locale collation may be necessary in environments where such options are available.
 
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
-
-# Security Considerations {#security_considerations}
-
-Section {{checksums}}{: format="title"} addresses the primary security-related concern in this document: data integrity and validation of decoded data.
-
-No additional security considerations are identified.
 
 # IANA Considerations {#iana_considerations}
 
