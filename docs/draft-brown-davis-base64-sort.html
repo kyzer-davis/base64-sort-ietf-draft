@@ -9,7 +9,7 @@
 <meta content="Kyzer R. Davis" name="author">
 <meta content="
        This document details a formal specification for a new Base64 alphabet which follows the US-ASCII ordering and sorts the same as binary.
-This serves as an alternative variant to Base64 and Base64url when a lexicographically sortable outputs are required.
+This serves as an alternative variant to Base64 and Base64url when lexicographically sortable outputs are required.
 The alphabet re-uses the Base64url special characters and is designed to be compatible with existing Base64 implementations, while providing a new option for applications that require sorted output. 
     " name="description">
 <meta content="xml2rfc 3.32.0" name="generator">
@@ -1260,7 +1260,7 @@ li > p:last-of-type:only-child {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document details a formal specification for a new Base64 alphabet which follows the US-ASCII ordering and sorts the same as binary.
-This serves as an alternative variant to Base64 and Base64url when a lexicographically sortable outputs are required.
+This serves as an alternative variant to Base64 and Base64url when lexicographically sortable outputs are required.
 The alphabet re-uses the Base64url special characters and is designed to be compatible with existing Base64 implementations, while providing a new option for applications that require sorted output.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
@@ -1385,7 +1385,7 @@ The alphabet re-uses the Base64url special characters and is designed to be comp
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Base64 (<span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-4" class="relref">Section 4</a></span>) and Base64url (<span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-5" class="relref">Section 5</a></span>) have been widely implemented and tested across the industry; however, if one requires a lexicographical sortable output they will need to use either Base32hex, Base36, or <span>[<a href="#Base58" class="cite xref">Base58</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">Base64 (<span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-4" class="relref">Section 4</a></span>) and Base64url (<span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-5" class="relref">Section 5</a></span>) have been widely implemented and tested across the industry; however, if one requires a lexicographically sortable output they will need to use either Base32hex, Base36, or <span>[<a href="#Base58" class="cite xref">Base58</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">There is no standardized sortable Base64 alphabet.
 Since the Base64 alphabets from RFC4648 see far more industry usage than the other previously mentioned alphabets there is a real need and requirement for a sortable Base64 Alphabet in the industry.
 See: <span>[<a href="#RFC4648_Usage_Report" class="cite xref">RFC4648_Usage_Report</a>]</span> for the breakdown of RFC citations for RFC4648 alphabets.<a href="#section-1-2" class="pilcrow">¶</a></p>
@@ -1411,7 +1411,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       </h2>
 <p id="section-3-1">This Base64 Sortable alphabet, which can be referenced as "Base64sort", is a variant of the Base64url alphabet (<span>[<a href="#RFC4648" class="cite xref">RFC4648</a>], <a href="https://rfc-editor.org/rfc/rfc4648#section-5" class="relref">Section 5</a></span>).<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">While it utilizes the same set of 64 URL-safe characters as Base64url, its fundamental distinction lies in the assignment of values to these characters by aligning the character values with their US-ASCII (<span>[<a href="#RFC20" class="cite xref">RFC20</a>]</span>) ordering to ensure that the encoded output sorts lexicographically in the same order as the underlying binary data.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">Specifically the numeric characters (0-9) have been moved before the lowercase and uppercase character while the special symbol characters, hyphen (-) and underscore (_), are placed at the beginning and middle of the alphabet as they appear in the US-ASCII character set.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-3">Specifically, the numeric characters (0-9) have been moved before the uppercase and lowercase characters while the special symbol characters, hyphen (-) and underscore (_), are placed at the beginning and middle of the alphabet as they appear in the US-ASCII character set.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <p id="section-3-4"><a href="#alphabetTable" class="auto internal xref">Table 1</a> details the alphabet characters along with their respective decoding and encoding values.<a href="#section-3-4" class="pilcrow">¶</a></p>
 <span id="name-the-base64sort-alphabet-as-"></span><div id="alphabetTable">
 <table class="center" id="table-1">
@@ -1684,7 +1684,7 @@ Mixing padded and un-padded encodings in the same sorted set may lead to unexpec
 <dl class="references">
 <dt id="Base58">[Base58]</dt>
         <dd>
-<span class="refAuthor">Bitcoin</span>, <span class="refTitle">"Bitcoint Base58 Encoding"</span>, <span class="seriesInfo">commit fae71d3</span>, <time datetime="2008-11" class="refDate">November 2008</time>, <span>&lt;<a href="https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp">https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp</a>&gt;</span>. </dd>
+<span class="refAuthor">Bitcoin</span>, <span class="refTitle">"Bitcoin Base58 Encoding"</span>, <span class="seriesInfo">commit fae71d3</span>, <time datetime="2008-11" class="refDate">November 2008</time>, <span>&lt;<a href="https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp">https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="new-uuid-encoding-techniques-ietf-draft">[new-uuid-encoding-techniques-ietf-draft]</dt>
         <dd>
@@ -1721,7 +1721,7 @@ Mixing padded and un-padded encodings in the same sorted set may lead to unexpec
       <h2 id="name-test-vectors">
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-test-vectors" class="section-name selfRef">Test Vectors</a>
       </h2>
-<p id="appendix-B-1">The following text vectors start with a base of those found in <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span> and then add additional values added for testing the new alphabet and its sorting properties.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-1">The following test vectors start with a base of those found in <span>[<a href="#RFC4648" class="cite xref">RFC4648</a>]</span> and then include additional values for testing the new alphabet and its sorting properties.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 <div id="test_vectors_encode">
 <section id="appendix-B.1">
         <h3 id="name-encoding">

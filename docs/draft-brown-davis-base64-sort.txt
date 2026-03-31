@@ -16,10 +16,10 @@ Abstract
    This document details a formal specification for a new Base64
    alphabet which follows the US-ASCII ordering and sorts the same as
    binary.  This serves as an alternative variant to Base64 and
-   Base64url when a lexicographically sortable outputs are required.
-   The alphabet re-uses the Base64url special characters and is designed
-   to be compatible with existing Base64 implementations, while
-   providing a new option for applications that require sorted output.
+   Base64url when lexicographically sortable outputs are required.  The
+   alphabet re-uses the Base64url special characters and is designed to
+   be compatible with existing Base64 implementations, while providing a
+   new option for applications that require sorted output.
 
 Status of This Memo
 
@@ -93,7 +93,7 @@ Table of Contents
 
    Base64 ([RFC4648], Section 4) and Base64url ([RFC4648], Section 5)
    have been widely implemented and tested across the industry; however,
-   if one requires a lexicographical sortable output they will need to
+   if one requires a lexicographically sortable output they will need to
    use either Base32hex, Base36, or [Base58].
 
    There is no standardized sortable Base64 alphabet.  Since the Base64
@@ -147,8 +147,8 @@ Internet-Draft                 base64-sort                    March 2026
    sorts lexicographically in the same order as the underlying binary
    data.
 
-   Specifically the numeric characters (0-9) have been moved before the
-   lowercase and uppercase character while the special symbol
+   Specifically, the numeric characters (0-9) have been moved before the
+   uppercase and lowercase characters while the special symbol
    characters, hyphen (-) and underscore (_), are placed at the
    beginning and middle of the alphabet as they appear in the US-ASCII
    character set.
@@ -288,7 +288,7 @@ Internet-Draft                 base64-sort                    March 2026
 
 7.2.  Informative References
 
-   [Base58]   Bitcoin, "Bitcoint Base58 Encoding", commit fae71d3,
+   [Base58]   Bitcoin, "Bitcoin Base58 Encoding", commit fae71d3,
               November 2008,
               <https://github.com/bitcoin/bitcoin/blob/master/src/
               base58.cpp>.
@@ -315,8 +315,8 @@ Appendix A.  Changelog
 
 Appendix B.  Test Vectors
 
-   The following text vectors start with a base of those found in
-   [RFC4648] and then add additional values added for testing the new
+   The following test vectors start with a base of those found in
+   [RFC4648] and then include additional values for testing the new
    alphabet and its sorting properties.
 
 B.1.  Encoding

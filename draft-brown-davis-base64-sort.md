@@ -30,7 +30,7 @@ informative:
   RFC9562:
   Base58:
     target: https://github.com/bitcoin/bitcoin/blob/master/src/base58.cpp
-    title: Bitcoint Base58 Encoding
+    title: Bitcoin Base58 Encoding
     author:
     - org: Bitcoin
     date: 2008-11
@@ -54,14 +54,14 @@ informative:
 --- abstract
 
 This document details a formal specification for a new Base64 alphabet which follows the US-ASCII ordering and sorts the same as binary.
-This serves as an alternative variant to Base64 and Base64url when a lexicographically sortable outputs are required.
+This serves as an alternative variant to Base64 and Base64url when lexicographically sortable outputs are required.
 The alphabet re-uses the Base64url special characters and is designed to be compatible with existing Base64 implementations, while providing a new option for applications that require sorted output.
 
 --- middle
 
 # Introduction
 
-Base64 ({{RFC4648, Section 4}}) and Base64url ({{RFC4648, Section 5}}) have been widely implemented and tested across the industry; however, if one requires a lexicographical sortable output they will need to use either Base32hex, Base36, or {{Base58}}.
+Base64 ({{RFC4648, Section 4}}) and Base64url ({{RFC4648, Section 5}}) have been widely implemented and tested across the industry; however, if one requires a lexicographically sortable output they will need to use either Base32hex, Base36, or {{Base58}}.
 
 There is no standardized sortable Base64 alphabet.
 Since the Base64 alphabets from RFC4648 see far more industry usage than the other previously mentioned alphabets there is a real need and requirement for a sortable Base64 Alphabet in the industry.
@@ -81,7 +81,7 @@ This Base64 Sortable alphabet, which can be referenced as "Base64sort", is a var
 
 While it utilizes the same set of 64 URL-safe characters as Base64url, its fundamental distinction lies in the assignment of values to these characters by aligning the character values with their US-ASCII ({{RFC20}}) ordering to ensure that the encoded output sorts lexicographically in the same order as the underlying binary data.
 
-Specifically the numeric characters (0-9) have been moved before the lowercase and uppercase character while the special symbol characters, hyphen (-) and underscore (_), are placed at the beginning and middle of the alphabet as they appear in the US-ASCII character set.
+Specifically, the numeric characters (0-9) have been moved before the uppercase and lowercase characters while the special symbol characters, hyphen (-) and underscore (_), are placed at the beginning and middle of the alphabet as they appear in the US-ASCII character set.
 
 {{alphabetTable}} details the alphabet characters along with their respective decoding and encoding values.
 
@@ -150,7 +150,7 @@ draft-00:
 
 # Test Vectors {#test_vectors}
 
-The following text vectors start with a base of those found in {{RFC4648}} and then add additional values added for testing the new alphabet and its sorting properties.
+The following test vectors start with a base of those found in {{RFC4648}} and then include additional values for testing the new alphabet and its sorting properties.
 
 ## Encoding {#test_vectors_encode}
 
