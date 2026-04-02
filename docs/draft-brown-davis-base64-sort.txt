@@ -5,7 +5,7 @@
 Independent                                                     D. Brown
 Internet-Draft                                               K. R. Davis
 Intended status: Standards Track                           Cisco Systems
-Expires: 2 October 2026                                    31 March 2026
+Expires: 4 October 2026                                     2 April 2026
 
 
                        A Sortable Base64 Alphabet
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 October 2026.
+   This Internet-Draft will expire on 4 October 2026.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 1]
+Brown & Davis            Expires 4 October 2026                 [Page 1]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 2]
+Brown & Davis            Expires 4 October 2026                 [Page 2]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
    This gap was made further apparent while examining Base64 usage with
@@ -137,8 +137,8 @@ Internet-Draft                 base64-sort                    March 2026
 3.  The Alphabet
 
    This Base64 Sortable alphabet, which can be referenced as
-   "Base64sort", is a variant of the Base64url alphabet ([RFC4648],
-   Section 5).
+   "Base64sort" or sometimes "Base64lex", is a variant of the Base64url
+   alphabet ([RFC4648], Section 5).
 
    While it utilizes the same set of 64 URL-safe characters as
    Base64url, its fundamental distinction lies in the assignment of
@@ -165,9 +165,9 @@ Internet-Draft                 base64-sort                    March 2026
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 3]
+Brown & Davis            Expires 4 October 2026                 [Page 3]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
     +=====+========+=====+==========+=====+==========+=====+==========+
@@ -221,9 +221,9 @@ Internet-Draft                 base64-sort                    March 2026
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 4]
+Brown & Davis            Expires 4 October 2026                 [Page 4]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
    Although the equal sign (=) padding character is positioned between
@@ -277,9 +277,9 @@ Internet-Draft                 base64-sort                    March 2026
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 5]
+Brown & Davis            Expires 4 October 2026                 [Page 5]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
@@ -333,9 +333,9 @@ B.1.  Encoding
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 6]
+Brown & Davis            Expires 4 October 2026                 [Page 6]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
        | foob        | OaxjNV           | Text                     |
@@ -389,9 +389,9 @@ B.2.  Decoding
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 7]
+Brown & Davis            Expires 4 October 2026                 [Page 7]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
                     | S5KnS-           | test         |
@@ -445,9 +445,9 @@ C.1.  Programming Language Results
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 8]
+Brown & Davis            Expires 4 October 2026                 [Page 8]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
    This indicates that the chosen character set and their relative ASCII
@@ -501,9 +501,9 @@ Authors' Addresses
 
 
 
-Brown & Davis            Expires 2 October 2026                 [Page 9]
+Brown & Davis            Expires 4 October 2026                 [Page 9]
 
-Internet-Draft                 base64-sort                    March 2026
+Internet-Draft                 base64-sort                    April 2026
 
 
    Dillon Brown
@@ -557,4 +557,4 @@ Internet-Draft                 base64-sort                    March 2026
 
 
 
-Brown & Davis            Expires 2 October 2026                [Page 10]
+Brown & Davis            Expires 4 October 2026                [Page 10]

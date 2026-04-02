@@ -77,7 +77,7 @@ This document serves as a standards-track RFC to provide a new alphabet that fol
 
 # The Alphabet {#alphabet}
 
-This Base64 Sortable alphabet, which can be referenced as "Base64sort", is a variant of the Base64url alphabet ({{RFC4648, Section 5}}).
+This Base64 Sortable alphabet, which can be referenced as "Base64sort" or sometimes "Base64lex", is a variant of the Base64url alphabet ({{RFC4648, Section 5}}).
 
 While it utilizes the same set of 64 URL-safe characters as Base64url, its fundamental distinction lies in the assignment of values to these characters by aligning the character values with their US-ASCII ({{RFC20}}) ordering to ensure that the encoded output sorts lexicographically in the same order as the underlying binary data.
 
