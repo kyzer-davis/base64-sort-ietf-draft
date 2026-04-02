@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "husky && kdrfc -rthv ./draft-brown-davis-base64-sort.md && mv ./draft-brown-davis-base64-sort.txt ./docs/ && mv ./draft-brown-davis-base64-sort.html ./docs/ && mv ./draft-brown-davis-base64-sort.xml ./docs/",
+    "lint": "kdrfc -ir ./draft-brown-davis-base64-sort.md > idnits.txt && rm -f ./draft-brown-davis-base64-sort.txt ./draft-brown-davis-base64-sort.xml"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
