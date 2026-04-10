@@ -15,12 +15,14 @@ pi: [toc, sortrefs, symrefs]
 workgroup: Independent
 
 author:
-  - name: Dillon Brown
-    email: dillbrow@cisco.com
-    org: Cisco Systems
-  - name: Kyzer R. Davis
-    email: kydavis@cisco.com
-    org: Cisco Systems
+- name: Kyzer R. Davis
+  email:
+    - kydavis@cisco.com
+    - kyzer.davis@outlook.com
+  org: Cisco Systems
+- name: Dillon Brown
+  email: dillbrow@cisco.com
+  org: Cisco Systems
 
 normative:
   RFC20:

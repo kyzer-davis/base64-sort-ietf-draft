@@ -2,10 +2,10 @@
 
 
 
-Independent                                                     D. Brown
-Internet-Draft                                               K. R. Davis
+Independent                                                  K. R. Davis
+Internet-Draft                                                  D. Brown
 Intended status: Standards Track                           Cisco Systems
-Expires: 4 October 2026                                     2 April 2026
+Expires: 12 October 2026                                   10 April 2026
 
 
                        A Sortable Base64 Alphabet
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 October 2026.
+   This Internet-Draft will expire on 12 October 2026.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 1]
+Davis & Brown            Expires 12 October 2026                [Page 1]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 2]
+Davis & Brown            Expires 12 October 2026                [Page 2]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -165,7 +165,7 @@ Internet-Draft                 base64-sort                    April 2026
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 3]
+Davis & Brown            Expires 12 October 2026                [Page 3]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -221,7 +221,7 @@ Internet-Draft                 base64-sort                    April 2026
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 4]
+Davis & Brown            Expires 12 October 2026                [Page 4]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -277,7 +277,7 @@ Internet-Draft                 base64-sort                    April 2026
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 5]
+Davis & Brown            Expires 12 October 2026                [Page 5]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -333,7 +333,7 @@ B.1.  Encoding
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 6]
+Davis & Brown            Expires 12 October 2026                [Page 6]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -389,7 +389,7 @@ B.2.  Decoding
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 7]
+Davis & Brown            Expires 12 October 2026                [Page 7]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -445,7 +445,7 @@ C.1.  Programming Language Results
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 8]
+Davis & Brown            Expires 12 October 2026                [Page 8]
 
 Internet-Draft                 base64-sort                    April 2026
 
@@ -501,9 +501,14 @@ Authors' Addresses
 
 
 
-Brown & Davis            Expires 4 October 2026                 [Page 9]
+Davis & Brown            Expires 12 October 2026                [Page 9]
 
 Internet-Draft                 base64-sort                    April 2026
+
+
+   Kyzer R. Davis
+   Cisco Systems
+   Email: kydavis@cisco.com, kyzer.davis@outlook.com
 
 
    Dillon Brown
@@ -511,9 +516,6 @@ Internet-Draft                 base64-sort                    April 2026
    Email: dillbrow@cisco.com
 
 
-   Kyzer R. Davis
-   Cisco Systems
-   Email: kydavis@cisco.com
 
 
 
@@ -555,6 +557,4 @@ Internet-Draft                 base64-sort                    April 2026
 
 
 
-
-
-Brown & Davis            Expires 4 October 2026                [Page 10]
+Davis & Brown            Expires 12 October 2026               [Page 10]
