@@ -6,12 +6,12 @@ This page details the IETF Draft documents constantly being updated by the autho
 
 ### Latest Published Draft:
 ```
-Internet-Draft draft-brown-davis-base64-sort-00.txt is now available.
+Internet-Draft draft-brown-davis-base64-sort-01.txt is now available.
 
    Title:   A Sortable Base64 Alphabet
    Authors: Kyzer R. Davis
             Dillon Brown
-   Name:    draft-brown-davis-base64-sort-00.txt
+   Name:    draft-brown-davis-base64-sort-01.txt
    Pages:   10
    Dates:   2026-04-10
 
