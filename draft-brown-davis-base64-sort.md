@@ -3,16 +3,23 @@ title: A Sortable Base64 Alphabet
 abbrev: base64-sort
 category: std
 
-docname: draft-brown-davis-base64-sort-00
+docname: draft-brown-davis-base64-sort-01
 submissiontype: IETF
 date: 2026
 consensus: true
 v: 3
+workgroup: Independent
 keyword:
   - encoding
   - base64
 pi: [toc, sortrefs, symrefs]
-workgroup: Independent
+venue:
+  group: "Revise Universally Unique Identifier Definitions (uuidrev)"
+  type: Working Group
+  mail: uuidrev@ietf.org
+  arch: https://mailarchive.ietf.org/arch/browse/uuidrev/
+  github: kyzer-davis/base64-sort-ietf-draft
+  latest: https://raw.githubusercontent.com/kyzer-davis/base64-sort-ietf-draft/refs/heads/main/draft-brown-davis-base64-sort.md
 
 author:
 - name: Kyzer R. Davis
@@ -48,7 +55,7 @@ informative:
     seriesinfo:
       commit: de0a2760
   new-uuid-encoding-techniques-ietf-draft:
-    target: https://github.com/uuid6/new-uuid-encoding-techniques-ietf-draft
+    target: https://datatracker.ietf.org/doc/draft-davis-uuidrev-alt-uuid-encoding-methods/
     title: Alternate UUID Encoding Methods
     author:
     - name: Kyzer Davis
@@ -149,6 +156,12 @@ draft-00:
 {: spacing="compact"}
 
 - Initial Release
+
+draft-01:
+
+{: spacing="compact"}
+
+- Update frontmatter venue and Alt encoding link
 
 # Test Vectors {#test_vectors}
 

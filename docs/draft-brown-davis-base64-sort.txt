@@ -9,7 +9,7 @@ Expires: 12 October 2026                                   10 April 2026
 
 
                        A Sortable Base64 Alphabet
-                    draft-brown-davis-base64-sort-00
+                    draft-brown-davis-base64-sort-01
 
 Abstract
 
@@ -21,6 +21,25 @@ Abstract
    be compatible with existing Base64 implementations, while providing a
    new option for applications that require sorted output.
 
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at
+   https://raw.githubusercontent.com/kyzer-davis/base64-sort-ietf-
+   draft/refs/heads/main/draft-brown-davis-base64-sort.md.  Status
+   information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-brown-davis-base64-sort/.
+
+   Discussion of this document takes place on the Revise Universally
+   Unique Identifier Definitions (uuidrev) Working Group mailing list
+   (mailto:uuidrev@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/uuidrev/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/uuidrev/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/kyzer-davis/base64-sort-ietf-draft.
+
 Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
@@ -30,6 +49,14 @@ Status of This Memo
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
    Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+
+
+
+Davis & Brown            Expires 12 October 2026                [Page 1]
+
+Internet-Draft                 base64-sort                    April 2026
+
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
@@ -43,21 +70,6 @@ Copyright Notice
    Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-
-
-
-
-
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 1]
-
-Internet-Draft                 base64-sort                    April 2026
-
-
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents (https://trustee.ietf.org/
    license-info) in effect on the date of publication of this document.
@@ -69,10 +81,10 @@ Internet-Draft                 base64-sort                    April 2026
 
 Table of Contents
 
-   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  Conventions and Definitions . . . . . . . . . . . . . . . . .   3
    3.  The Alphabet  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     3.1.  Padding . . . . . . . . . . . . . . . . . . . . . . . . .   4
+     3.1.  Padding . . . . . . . . . . . . . . . . . . . . . . . . .   5
    4.  Decoding  . . . . . . . . . . . . . . . . . . . . . . . . . .   5
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
@@ -80,14 +92,27 @@ Table of Contents
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
      7.2.  Informative References  . . . . . . . . . . . . . . . . .   6
    Appendix A.  Changelog  . . . . . . . . . . . . . . . . . . . . .   6
-   Appendix B.  Test Vectors . . . . . . . . . . . . . . . . . . . .   6
-     B.1.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   6
-     B.2.  Decoding  . . . . . . . . . . . . . . . . . . . . . . . .   7
+   Appendix B.  Test Vectors . . . . . . . . . . . . . . . . . . . .   7
+     B.1.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     B.2.  Decoding  . . . . . . . . . . . . . . . . . . . . . . . .   8
    Appendix C.  Industry Tests . . . . . . . . . . . . . . . . . . .   8
-     C.1.  Programming Language Results  . . . . . . . . . . . . . .   8
+     C.1.  Programming Language Results  . . . . . . . . . . . . . .   9
      C.2.  Database Test Results . . . . . . . . . . . . . . . . . .   9
-     C.3.  Conclusion  . . . . . . . . . . . . . . . . . . . . . . .   9
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
+     C.3.  Conclusion  . . . . . . . . . . . . . . . . . . . . . . .  10
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
+
+
+
+
+
+
+
+
+
+Davis & Brown            Expires 12 October 2026                [Page 2]
+
+Internet-Draft                 base64-sort                    April 2026
+
 
 1.  Introduction
 
@@ -102,17 +127,6 @@ Table of Contents
    for a sortable Base64 Alphabet in the industry.  See:
    [RFC4648_Usage_Report] for the breakdown of RFC citations for RFC4648
    alphabets.
-
-
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 2]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
    This gap was made further apparent while examining Base64 usage with
    Universally Unique IDentifiers (UUIDs) defined in [RFC9562] to create
@@ -147,20 +161,6 @@ Internet-Draft                 base64-sort                    April 2026
    sorts lexicographically in the same order as the underlying binary
    data.
 
-   Specifically, the numeric characters (0-9) have been moved before the
-   uppercase and lowercase characters while the special symbol
-   characters, hyphen (-) and underscore (_), are placed at the
-   beginning and middle of the alphabet as they appear in the US-ASCII
-   character set.
-
-   Table 1 details the alphabet characters along with their respective
-   decoding and encoding values.
-
-
-
-
-
-
 
 
 
@@ -169,6 +169,15 @@ Davis & Brown            Expires 12 October 2026                [Page 3]
 
 Internet-Draft                 base64-sort                    April 2026
 
+
+   Specifically, the numeric characters (0-9) have been moved before the
+   uppercase and lowercase characters while the special symbol
+   characters, hyphen (-) and underscore (_), are placed at the
+   beginning and middle of the alphabet as they appear in the US-ASCII
+   character set.
+
+   Table 1 details the alphabet characters along with their respective
+   decoding and encoding values.
 
     +=====+========+=====+==========+=====+==========+=====+==========+
     |Value|Encoding|Value| Encoding |Value| Encoding |Value| Encoding |
@@ -210,6 +219,13 @@ Internet-Draft                 base64-sort                    April 2026
 
    The Alphabet as a continuous text input can be found in Figure 1.
 
+
+
+Davis & Brown            Expires 12 October 2026                [Page 4]
+
+Internet-Draft                 base64-sort                    April 2026
+
+
    -0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz
 
                  Figure 1: The Base64sort Alphabet as text
@@ -218,13 +234,6 @@ Internet-Draft                 base64-sort                    April 2026
 
    Base64sort follows the same padding logic as Base64url ([RFC4648],
    Section 5).  That is, padding MAY be used with Base64sort.
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 4]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
    Although the equal sign (=) padding character is positioned between
    the numeric characters and the uppercase letters in the US-ASCII
@@ -264,15 +273,6 @@ Internet-Draft                 base64-sort                    April 2026
               RFC 20, DOI 10.17487/RFC0020, October 1969,
               <https://www.rfc-editor.org/rfc/rfc20>.
 
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/rfc/rfc2119>.
-
-   [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
-              Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
-              <https://www.rfc-editor.org/rfc/rfc4648>.
-
 
 
 
@@ -281,6 +281,15 @@ Davis & Brown            Expires 12 October 2026                [Page 5]
 
 Internet-Draft                 base64-sort                    April 2026
 
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
+              Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
+              <https://www.rfc-editor.org/rfc/rfc4648>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -295,8 +304,8 @@ Internet-Draft                 base64-sort                    April 2026
 
    [new-uuid-encoding-techniques-ietf-draft]
               Davis, K., "Alternate UUID Encoding Methods", n.d.,
-              <https://github.com/uuid6/new-uuid-encoding-techniques-
-              ietf-draft>.
+              <https://datatracker.ietf.org/doc/draft-davis-uuidrev-alt-
+              uuid-encoding-methods/>.
 
    [RFC4648_Usage_Report]
               "RFC4648 Alphabet Usage Report", commit de0a2760, November
@@ -312,6 +321,22 @@ Appendix A.  Changelog
    draft-00:
 
    *  Initial Release
+
+   draft-01:
+
+   *  Update frontmatter venue and Alt encoding link
+
+
+
+
+
+
+
+
+Davis & Brown            Expires 12 October 2026                [Page 6]
+
+Internet-Draft                 base64-sort                    April 2026
+
 
 Appendix B.  Test Vectors
 
@@ -330,14 +355,6 @@ B.1.  Encoding
        +-------------+------------------+--------------------------+
        | foo         | Oaxj             | Text                     |
        +-------------+------------------+--------------------------+
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 6]
-
-Internet-Draft                 base64-sort                    April 2026
-
-
        | foob        | OaxjNV           | Text                     |
        +-------------+------------------+--------------------------+
        | fooba       | OaxjNa3          | Text                     |
@@ -369,6 +386,14 @@ Internet-Draft                 base64-sort                    April 2026
 
                    Table 2: Base64 Sortable Encode Table
 
+
+
+
+Davis & Brown            Expires 12 October 2026                [Page 7]
+
+Internet-Draft                 base64-sort                    April 2026
+
+
 B.2.  Decoding
 
                     +==================+==============+
@@ -386,14 +411,6 @@ B.2.  Decoding
                     +------------------+--------------+
                     | OaxjNa4m         | foobar       |
                     +------------------+--------------+
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 7]
-
-Internet-Draft                 base64-sort                    April 2026
-
-
                     | S5KnS-           | test         |
                     +------------------+--------------+
                     | H5KgQ5wVKqxmQ5F  | Hello World  |
@@ -426,6 +443,13 @@ Appendix C.  Industry Tests
    alphabet in common computing environments, a series of tests were
    conducted across various programming languages and database systems.
 
+
+
+Davis & Brown            Expires 12 October 2026                [Page 8]
+
+Internet-Draft                 base64-sort                    April 2026
+
+
    The objective was to observe how a mixed list of characters from the
    proposed alphabet would sort using their default string comparison
    mechanisms.
@@ -440,15 +464,6 @@ C.1.  Programming Language Results
 
    The results consistently demonstrated sorting according to the US-
    ASCII character order: -, 3, 7, A, B, C, E, _, a, b, c, z.
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 8]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
    This indicates that the chosen character set and their relative ASCII
    values are respected by the default string sorting algorithms in
@@ -481,6 +496,16 @@ C.2.  Database Test Results
    before 3 and lowercase letters before uppercase, similar to the
    default SQL, C#, and Visual Basic results.
 
+
+
+
+
+
+Davis & Brown            Expires 12 October 2026                [Page 9]
+
+Internet-Draft                 base64-sort                    April 2026
+
+
 C.3.  Conclusion
 
    The testing confirms that the Base64 Sortable alphabet generally
@@ -497,15 +522,6 @@ C.3.  Conclusion
 
 Authors' Addresses
 
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 9]
-
-Internet-Draft                 base64-sort                    April 2026
-
-
    Kyzer R. Davis
    Cisco Systems
    Email: kydavis@cisco.com, kyzer.davis@outlook.com
@@ -514,22 +530,6 @@ Internet-Draft                 base64-sort                    April 2026
    Dillon Brown
    Cisco Systems
    Email: dillbrow@cisco.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
