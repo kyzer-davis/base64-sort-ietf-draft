@@ -3,21 +3,21 @@ title: A Sortable Base64 Alphabet
 abbrev: base64-sort
 category: std
 
-docname: draft-brown-davis-base64-sort-01
+docname: draft-brown-davis-base64-sort-02
 submissiontype: IETF
 date: 2026
 consensus: true
 v: 3
-workgroup: Independent
+workgroup: Network Working Group
 keyword:
   - encoding
   - base64
 pi: [toc, sortrefs, symrefs]
 venue:
-  group: "Revise Universally Unique Identifier Definitions (uuidrev)"
+  group: "Dispatch (dispatch)"
   type: Working Group
-  mail: uuidrev@ietf.org
-  arch: https://mailarchive.ietf.org/arch/browse/uuidrev/
+  mail: dispatch@ietf.org
+  arch: https://mailarchive.ietf.org/arch/browse/dispatch/
   github: kyzer-davis/base64-sort-ietf-draft
   latest: https://raw.githubusercontent.com/kyzer-davis/base64-sort-ietf-draft/refs/heads/main/draft-brown-davis-base64-sort.md
 
@@ -78,7 +78,7 @@ See: {{RFC4648_Usage_Report}} for the breakdown of RFC citations for RFC4648 alp
 
 This gap was made further apparent while examining Base64 usage with Universally Unique IDentifiers (UUIDs) defined in {{RFC9562}} to create {{new-uuid-encoding-techniques-ietf-draft}} which asserts that UUIDv6 and UUIDv7 benefit greatly from lexicographically sortable alphabets like Base64 Sortable.
 
-This document serves as a standards-track RFC to provide a new alphabet that follows the US-ASCII ({{RFC20}}) ordering, re-uses the Base64url special characters and sorts the same as binary. This document is created to serve as a reference for new libraries and for future RFCs to cite.
+This document specifies a new alphabet that follows the US-ASCII ({{RFC20}}) ordering, re-uses the Base64url special characters and sorts the same as binary. This document is created to serve as a reference for new libraries and for future RFCs to cite.
 
 # Conventions and Definitions
 
@@ -123,15 +123,19 @@ The Alphabet as a continuous text input can be found in {{alphabetText}}.
 
 ## Padding {#padding}
 
-Base64sort follows the same padding logic as Base64url ({{RFC4648, Section 5}}).
-That is, padding MAY be used with Base64sort.
+Base64sort uses the same equal sign (=) padding character as Base64url ({{RFC4648, Section 5}}).
+As allowed by {{RFC4648, Section 3.2}}, padding MAY be used with Base64sort but SHOULD be omitted when the encoded output is used for sorting.
 
-Although the equal sign (=) padding character is positioned between the numeric characters and the uppercase letters in the US-ASCII character set; it does not cause any issues with sorting since the padding is always in the right-most, least significant position of the encoded string.
+The equal sign (=) padding character is positioned between the numeric characters and the uppercase letters in the US-ASCII character set.
+Since the padding is always in the right-most, least significant position of the encoded string, it does not cause any issues with sorting when every input in the sorted set is the same length, such as 128-bit UUIDs.
 
-Note that this assumes the sorted data is either entirely all padded or un-padded encodings.
-Mixing padded and un-padded encodings in the same sorted set may lead to unexpected results since the padding character would be treated as a significant character in the sort order.
+When inputs of different lengths are sorted together, padding can cause the encoded output to sort differently than the binary.
+For example, the single octet 0x00 encodes to `--==` while the two octets 0x00 0x00 encode to `---=`.
+Since the equal sign (=) sorts after the hyphen (-), the shorter input sorts after the longer input even though it sorts before it as binary.
+Un-padded encodings do not have this issue since `--` sorts before `---`.
 
-Implementations MAY utilize a padding character that is not part of the Base64sort alphabet and does not interfere with sorting, such as a tilde (~), to maintain the integrity of the sort order of mixed datasets while still indicating padding.
+Implementations SHOULD NOT use a padding character other than the equal sign (=).
+Characters that sort after the Base64sort alphabet, such as a tilde (~), have the same sorting issue as the equal sign (=) and may not be accepted by other Base64sort decoders.
 
 # Decoding {#decoding}
 
@@ -139,7 +143,18 @@ The decoding process for Base64sort follows the principles outlined in ({{RFC464
 
 # Security Considerations {#security_considerations}
 
-This document has no security considerations.
+The security considerations found in {{RFC4648, Section 12}} also apply to Base64sort.
+
+Base64sort uses the same 64 characters as Base64url, so data encoded with one alphabet can be decoded with the other without any error.
+The result is incorrect binary data rather than a decoding failure.
+Applications SHOULD clearly identify which alphabet is in use, such as in the protocol or data format specification, rather than attempting to detect the alphabet from the encoded data.
+
+Encoders MUST set the pad bits to zero as described in {{RFC4648, Section 3.5}}.
+Otherwise the same binary data can have more than one encoding and these encodings will not sort or compare as equal.
+Decoders MAY reject encodings where the pad bits are not zero.
+
+Base64sort is an encoding and does not provide any confidentiality.
+Since the encoded output keeps the same sort order as the binary, any ordering information in the data, such as the timestamp found in UUIDv6 and UUIDv7 ({{RFC9562}}), is still visible after encoding.
 
 # IANA Considerations {#iana_considerations}
 
@@ -163,9 +178,19 @@ draft-01:
 
 - Update frontmatter venue and Alt encoding link
 
+draft-02:
+
+{: spacing="compact"}
+
+- Update venue since uuidrev has concluded
+- Correct padding guidance for sorting mixed length inputs
+- Remove tilde padding option and test vectors
+- Add Security Considerations
+
 # Test Vectors {#test_vectors}
 
 The following test vectors start with a base of those found in {{RFC4648}} and then include additional values for testing the new alphabet and its sorting properties.
+Encoded data is shown without padding unless noted.
 
 ## Encoding {#test_vectors_encode}
 
@@ -187,7 +212,6 @@ The following test vectors start with a base of those found in {{RFC4648}} and t
 | `=`           | `EF`               | Equal Sign         |
 | `~`           | `UV`               | Tilde              |
 | `0123456789`  | `B23mBnFpCYRsDF==` | Input with Equal Padding |
-| `0123456789`  | `B23mBnFpCYRsDF~~` | Input with Tilde Padding |
 {: #encodeTable title='Base64 Sortable Encode Table'}
 
 ## Decoding {#test_vectors_decode}
@@ -210,7 +234,6 @@ The following test vectors start with a base of those found in {{RFC4648}} and t
 | `EF`               | `=`           |
 | `UV`               | `~`           |
 | `B23mBnFpCYRsDF==` | `0123456789`  |
-| `B23mBnFpCYRsDF~~` | `0123456789`  |
 {: #decodeTable title='Base64 Sortable Decode Table'}
 
 # Industry Tests {#industry_tests}

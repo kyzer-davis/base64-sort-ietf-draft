@@ -2,14 +2,14 @@
 
 
 
-Independent                                                  K. R. Davis
+Network Working Group                                        K. R. Davis
 Internet-Draft                                                  D. Brown
 Intended status: Standards Track                           Cisco Systems
-Expires: 12 October 2026                                   10 April 2026
+Expires: 20 May 2027                                    16 November 2026
 
 
                        A Sortable Base64 Alphabet
-                    draft-brown-davis-base64-sort-01
+                    draft-brown-davis-base64-sort-02
 
 Abstract
 
@@ -31,11 +31,10 @@ About This Document
    information for this document may be found at
    https://datatracker.ietf.org/doc/draft-brown-davis-base64-sort/.
 
-   Discussion of this document takes place on the Revise Universally
-   Unique Identifier Definitions (uuidrev) Working Group mailing list
-   (mailto:uuidrev@ietf.org), which is archived at
-   https://mailarchive.ietf.org/arch/browse/uuidrev/.  Subscribe at
-   https://www.ietf.org/mailman/listinfo/uuidrev/.
+   Discussion of this document takes place on the Dispatch (dispatch)
+   Working Group mailing list (mailto:dispatch@ietf.org), which is
+   archived at https://mailarchive.ietf.org/arch/browse/dispatch/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/dispatch/.
 
    Source for this draft and an issue tracker can be found at
    https://github.com/kyzer-davis/base64-sort-ietf-draft.
@@ -53,9 +52,10 @@ Status of This Memo
 
 
 
-Davis & Brown            Expires 12 October 2026                [Page 1]
+
+Davis & Brown              Expires 20 May 2027                  [Page 1]
 
-Internet-Draft                 base64-sort                    April 2026
+Internet-Draft                 base64-sort                 November 2026
 
 
    Internet-Drafts are draft documents valid for a maximum of six months
@@ -63,7 +63,7 @@ Internet-Draft                 base64-sort                    April 2026
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 October 2026.
+   This Internet-Draft will expire on 20 May 2027.
 
 Copyright Notice
 
@@ -87,17 +87,17 @@ Table of Contents
      3.1.  Padding . . . . . . . . . . . . . . . . . . . . . . . . .   5
    4.  Decoding  . . . . . . . . . . . . . . . . . . . . . . . . . .   5
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
      7.2.  Informative References  . . . . . . . . . . . . . . . . .   6
-   Appendix A.  Changelog  . . . . . . . . . . . . . . . . . . . . .   6
+   Appendix A.  Changelog  . . . . . . . . . . . . . . . . . . . . .   7
    Appendix B.  Test Vectors . . . . . . . . . . . . . . . . . . . .   7
      B.1.  Encoding  . . . . . . . . . . . . . . . . . . . . . . . .   7
      B.2.  Decoding  . . . . . . . . . . . . . . . . . . . . . . . .   8
-   Appendix C.  Industry Tests . . . . . . . . . . . . . . . . . . .   8
+   Appendix C.  Industry Tests . . . . . . . . . . . . . . . . . . .   9
      C.1.  Programming Language Results  . . . . . . . . . . . . . .   9
-     C.2.  Database Test Results . . . . . . . . . . . . . . . . . .   9
+     C.2.  Database Test Results . . . . . . . . . . . . . . . . . .  10
      C.3.  Conclusion  . . . . . . . . . . . . . . . . . . . . . . .  10
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Davis & Brown            Expires 12 October 2026                [Page 2]
+Davis & Brown              Expires 20 May 2027                  [Page 2]
 
-Internet-Draft                 base64-sort                    April 2026
+Internet-Draft                 base64-sort                 November 2026
 
 
 1.  Introduction
@@ -134,11 +134,10 @@ Internet-Draft                 base64-sort                    April 2026
    and UUIDv7 benefit greatly from lexicographically sortable alphabets
    like Base64 Sortable.
 
-   This document serves as a standards-track RFC to provide a new
-   alphabet that follows the US-ASCII ([RFC20]) ordering, re-uses the
-   Base64url special characters and sorts the same as binary.  This
-   document is created to serve as a reference for new libraries and for
-   future RFCs to cite.
+   This document specifies a new alphabet that follows the US-ASCII
+   ([RFC20]) ordering, re-uses the Base64url special characters and
+   sorts the same as binary.  This document is created to serve as a
+   reference for new libraries and for future RFCs to cite.
 
 2.  Conventions and Definitions
 
@@ -165,9 +164,10 @@ Internet-Draft                 base64-sort                    April 2026
 
 
 
-Davis & Brown            Expires 12 October 2026                [Page 3]
+
+Davis & Brown              Expires 20 May 2027                  [Page 3]
 
-Internet-Draft                 base64-sort                    April 2026
+Internet-Draft                 base64-sort                 November 2026
 
 
    Specifically, the numeric characters (0-9) have been moved before the
@@ -221,9 +221,9 @@ Internet-Draft                 base64-sort                    April 2026
 
 
 
-Davis & Brown            Expires 12 October 2026                [Page 4]
+Davis & Brown              Expires 20 May 2027                  [Page 4]
 
-Internet-Draft                 base64-sort                    April 2026
+Internet-Draft                 base64-sort                 November 2026
 
 
    -0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz
@@ -232,25 +232,30 @@ Internet-Draft                 base64-sort                    April 2026
 
 3.1.  Padding
 
-   Base64sort follows the same padding logic as Base64url ([RFC4648],
-   Section 5).  That is, padding MAY be used with Base64sort.
+   Base64sort uses the same equal sign (=) padding character as
+   Base64url ([RFC4648], Section 5).  As allowed by [RFC4648],
+   Section 3.2, padding MAY be used with Base64sort but SHOULD be
+   omitted when the encoded output is used for sorting.
 
-   Although the equal sign (=) padding character is positioned between
-   the numeric characters and the uppercase letters in the US-ASCII
-   character set; it does not cause any issues with sorting since the
-   padding is always in the right-most, least significant position of
-   the encoded string.
+   The equal sign (=) padding character is positioned between the
+   numeric characters and the uppercase letters in the US-ASCII
+   character set.  Since the padding is always in the right-most, least
+   significant position of the encoded string, it does not cause any
+   issues with sorting when every input in the sorted set is the same
+   length, such as 128-bit UUIDs.
 
-   Note that this assumes the sorted data is either entirely all padded
-   or un-padded encodings.  Mixing padded and un-padded encodings in the
-   same sorted set may lead to unexpected results since the padding
-   character would be treated as a significant character in the sort
-   order.
+   When inputs of different lengths are sorted together, padding can
+   cause the encoded output to sort differently than the binary.  For
+   example, the single octet 0x00 encodes to --== while the two octets
+   0x00 0x00 encode to ---=. Since the equal sign (=) sorts after the
+   hyphen (-), the shorter input sorts after the longer input even
+   though it sorts before it as binary.  Un-padded encodings do not have
+   this issue since -- sorts before ---.
 
-   Implementations MAY utilize a padding character that is not part of
-   the Base64sort alphabet and does not interfere with sorting, such as
-   a tilde (~), to maintain the integrity of the sort order of mixed
-   datasets while still indicating padding.
+   Implementations SHOULD NOT use a padding character other than the
+   equal sign (=).  Characters that sort after the Base64sort alphabet,
+   such as a tilde (~), have the same sorting issue as the equal sign
+   (=) and may not be accepted by other Base64sort decoders.
 
 4.  Decoding
 
@@ -259,7 +264,33 @@ Internet-Draft                 base64-sort                    April 2026
 
 5.  Security Considerations
 
-   This document has no security considerations.
+   The security considerations found in [RFC4648], Section 12 also apply
+   to Base64sort.
+
+   Base64sort uses the same 64 characters as Base64url, so data encoded
+   with one alphabet can be decoded with the other without any error.
+   The result is incorrect binary data rather than a decoding failure.
+   Applications SHOULD clearly identify which alphabet is in use, such
+   as in the protocol or data format specification, rather than
+   attempting to detect the alphabet from the encoded data.
+
+
+
+
+Davis & Brown              Expires 20 May 2027                  [Page 5]
+
+Internet-Draft                 base64-sort                 November 2026
+
+
+   Encoders MUST set the pad bits to zero as described in [RFC4648],
+   Section 3.5.  Otherwise the same binary data can have more than one
+   encoding and these encodings will not sort or compare as equal.
+   Decoders MAY reject encodings where the pad bits are not zero.
+
+   Base64sort is an encoding and does not provide any confidentiality.
+   Since the encoded output keeps the same sort order as the binary, any
+   ordering information in the data, such as the timestamp found in
+   UUIDv6 and UUIDv7 ([RFC9562]), is still visible after encoding.
 
 6.  IANA Considerations
 
@@ -270,17 +301,8 @@ Internet-Draft                 base64-sort                    April 2026
 7.1.  Normative References
 
    [RFC20]    Cerf, V., "ASCII format for network interchange", STD 80,
-              RFC 20, DOI 10.17487/RFC0020, October 1969,
+              RFC 20, DOI 10.17487/RFC20, October 1969,
               <https://www.rfc-editor.org/rfc/rfc20>.
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 5]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -307,6 +329,15 @@ Internet-Draft                 base64-sort                    April 2026
               <https://datatracker.ietf.org/doc/draft-davis-uuidrev-alt-
               uuid-encoding-methods/>.
 
+
+
+
+
+Davis & Brown              Expires 20 May 2027                  [Page 6]
+
+Internet-Draft                 base64-sort                 November 2026
+
+
    [RFC4648_Usage_Report]
               "RFC4648 Alphabet Usage Report", commit de0a2760, November
               2025, <https://gitlab.com/julian.reschke/base-encodings-
@@ -326,23 +357,19 @@ Appendix A.  Changelog
 
    *  Update frontmatter venue and Alt encoding link
 
+   draft-02:
 
-
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 6]
-
-Internet-Draft                 base64-sort                    April 2026
-
+   *  Update venue since uuidrev has concluded
+   *  Correct padding guidance for sorting mixed length inputs
+   *  Remove tilde padding option and test vectors
+   *  Add Security Considerations
 
 Appendix B.  Test Vectors
 
    The following test vectors start with a base of those found in
    [RFC4648] and then include additional values for testing the new
-   alphabet and its sorting properties.
+   alphabet and its sorting properties.  Encoded data is shown without
+   padding unless noted.
 
 B.1.  Encoding
 
@@ -359,6 +386,14 @@ B.1.  Encoding
        +-------------+------------------+--------------------------+
        | fooba       | OaxjNa3          | Text                     |
        +-------------+------------------+--------------------------+
+
+
+
+Davis & Brown              Expires 20 May 2027                  [Page 7]
+
+Internet-Draft                 base64-sort                 November 2026
+
+
        | foobar      | OaxjNa4m         | Text                     |
        +-------------+------------------+--------------------------+
        | test        | S5KnS-           | Text                     |
@@ -381,18 +416,8 @@ B.1.  Encoding
        +-------------+------------------+--------------------------+
        | 0123456789  | B23mBnFpCYRsDF== | Input with Equal Padding |
        +-------------+------------------+--------------------------+
-       | 0123456789  | B23mBnFpCYRsDF~~ | Input with Tilde Padding |
-       +-------------+------------------+--------------------------+
 
                    Table 2: Base64 Sortable Encode Table
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 7]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
 B.2.  Decoding
 
@@ -417,6 +442,14 @@ B.2.  Decoding
                     +------------------+--------------+
                     | AF               | -            |
                     +------------------+--------------+
+
+
+
+Davis & Brown              Expires 20 May 2027                  [Page 8]
+
+Internet-Draft                 base64-sort                 November 2026
+
+
                     | B-               | 0            |
                     +------------------+--------------+
                     | Mk               | _            |
@@ -431,8 +464,6 @@ B.2.  Decoding
                     +------------------+--------------+
                     | B23mBnFpCYRsDF== | 0123456789   |
                     +------------------+--------------+
-                    | B23mBnFpCYRsDF~~ | 0123456789   |
-                    +------------------+--------------+
 
                       Table 3: Base64 Sortable Decode
                                    Table
@@ -442,13 +473,6 @@ Appendix C.  Industry Tests
    To validate the lexicographical sortability of the Base64sort
    alphabet in common computing environments, a series of tests were
    conducted across various programming languages and database systems.
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 8]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
    The objective was to observe how a mixed list of characters from the
    proposed alphabet would sort using their default string comparison
@@ -473,6 +497,15 @@ C.1.  Programming Language Results
    placing _ before 3 and sorting uppercase letters after their
    lowercase counterparts (e.g., a before A).
 
+
+
+
+
+Davis & Brown              Expires 20 May 2027                  [Page 9]
+
+Internet-Draft                 base64-sort                 November 2026
+
+
    This suggests that their default string comparison routines may
    employ locale-aware or cultural sorting rules rather than strict
    ordinal (ASCII) comparison.
@@ -495,16 +528,6 @@ C.2.  Database Test Results
    Redis's SORT ... ALPHA command also showed a deviation, placing _
    before 3 and lowercase letters before uppercase, similar to the
    default SQL, C#, and Visual Basic results.
-
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026                [Page 9]
-
-Internet-Draft                 base64-sort                    April 2026
-
 
 C.3.  Conclusion
 
@@ -534,27 +557,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Davis & Brown            Expires 12 October 2026               [Page 10]
+Davis & Brown              Expires 20 May 2027                 [Page 10]
